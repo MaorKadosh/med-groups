@@ -255,7 +255,7 @@ const participants = [
     { name: 'אביעד זיוון בר', id: '5696832', group: 'קבוצה 13' }
 ];
 
-function searchParticipant() {
+window.searchParticipant = function() {
     const searchTerm = document.getElementById('searchInput').value.trim();
     const resultDiv = document.getElementById('result');
 
@@ -279,7 +279,7 @@ function searchParticipant() {
     } else {
         resultDiv.innerHTML = '<p class="not-found">הפרטים שהוזנו לא נמצאו במערכת.</p>';
     }
-}
+};
 
 document.getElementById('searchInput').addEventListener('keyup', function(event) {
     if (event.key === 'Enter') {
