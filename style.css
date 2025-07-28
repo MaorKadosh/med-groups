@@ -1,146 +1,119 @@
-/* General page setup */
-html {
-    height: 100%;
+
+:root {
+    --primary-color: #c62828;
+    --accent-color: #ad1457;
+    --background: #fffafa;
+    --success-bg: #fdecea;
+    --error-color: #b71c1c;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
-    min-height: 100%;
     margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f7f6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--background);
     color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-/* Main application container */
 .container {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 15px;
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 20px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 500px;
     text-align: center;
-    flex-shrink: 0; /* Prevents the container from shrinking */
+    animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Header section */
-header {
-    margin-bottom: 25px;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- 👇 הגדלתי את הלוגו באופן משמעותי כאן 👇 --- */
 .logo {
-    width: 150px; /* גודל חדש ובולט */
+    width: 120px;
     margin-bottom: 15px;
 }
 
 h1 {
-    color: #004d40;
-    font-size: 1.8em;
-    margin: 0;
+    color: var(--accent-color);
+    font-size: 2em;
 }
 
-p {
-    color: #555;
-    font-size: 1.1em;
-}
-
-/* Search elements */
 .search-box {
     display: flex;
     gap: 10px;
-    margin-bottom: 25px;
+    margin: 20px 0;
 }
 
 #searchInput {
     flex-grow: 1;
-    padding: 12px 15px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
     font-size: 1em;
     transition: border-color 0.3s;
 }
 
 #searchInput:focus {
+    border-color: var(--primary-color);
     outline: none;
-    border-color: #00796b;
 }
 
 button {
-    padding: 12px 25px;
-    background-color: #00796b;
+    padding: 12px 20px;
+    background: var(--primary-color);
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 1em;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background 0.3s;
 }
 
 button:hover {
-    background-color: #004d40;
+    background: var(--accent-color);
 }
 
-/* Results box */
 .result-box {
-    background-color: #e0f2f1;
-    border: 1px dashed #00796b;
-    border-radius: 8px;
+    background: var(--success-bg);
+    border-radius: 10px;
     padding: 20px;
-    min-height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    min-height: 80px;
+    transition: all 0.3s ease;
 }
 
 .result-name {
     font-weight: bold;
-    font-size: 1.3em;
-    color: #004d40;
-    margin: 0;
+    font-size: 1.2em;
+    color: var(--accent-color);
 }
 
 .result-group {
-    font-size: 1.8em;
+    font-size: 1.5em;
+    color: var(--primary-color);
     font-weight: bold;
-    color: #00796b;
-    margin: 5px 0 0 0;
-}
-
-.result-details {
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px solid #b2dfdb;
-    width: 100%;
-    font-size: 1em;
-}
-
-.result-details p {
-    margin: 5px 0;
-    color: #004d40;
 }
 
 .not-found {
-    color: #d32f2f;
-    font-size: 1.1em;
+    color: var(--error-color);
     font-weight: bold;
+    font-size: 1.1em;
 }
 
-/* Footer section */
 footer {
-    width: 100%;
+    margin-top: auto;
     text-align: center;
     padding-top: 20px;
-    margin-top: auto;
-}
-
-footer p {
-    color: #888;
     font-size: 0.9em;
+    color: #888;
 }
