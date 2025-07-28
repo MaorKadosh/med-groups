@@ -264,9 +264,21 @@ function searchParticipant() {
         return; 
     }
 
-    const foundParticipant = participants.find(p =>
-        p.name.toLowerCase() === searchTerm.toLowerCase() || p.id === searchTerm
+    const foundParticipants = participants.filter(p =>
+        p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        p.id.includes(searchTerm)
     );
+    
+    if (foundParticipants.length > 0) {
+        resultDiv.innerHTML = foundParticipants.map(p => `
+            <p class="result-name">${p.name}</p>
+            <p>שובצת בקבוצת העבודה:</p>
+            <p class="result-group">${p.group}</p>
+            <hr>
+        `).join('');
+    } else {
+        resultDiv.innerHTML = '<p class="not-found">הפרטים שהוזנו לא נמצאו במערכת.</p>';
+    }
 
     if (foundParticipant) {
         resultDiv.innerHTML = `
