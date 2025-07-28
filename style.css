@@ -1,17 +1,16 @@
 html, body {
-    height: 100%; /* מבטיח שהעמוד יתפוס את כל גובה המסך */
+    height: 100%;
     margin: 0;
     padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f7f6;
-    color: #333;
-    display: flex; /* מפעיל את מודל העיצוב Flexbox */
-    flex-direction: column; /* מסדר את האלמנטים אחד מתחת לשני */
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
+    padding: 20px;
 }
 
 .container {
@@ -22,7 +21,13 @@ body {
     width: 100%;
     max-width: 500px;
     text-align: center;
-    margin: 0 auto; /* ממקם במרכז המסך האופקי */
+    margin: 0 auto;
+    flex-shrink: 0; /* מונע מהמיכל להתכווץ */
+    /* --- 👇 השינוי העיקרי נמצא כאן 👇 --- */
+    flex-grow: 1; /* נותן למיכל לגדול ולתפוס את כל המקום הפנוי */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 header {
@@ -112,12 +117,11 @@ button:hover {
     font-weight: bold;
 }
 
-/* --- 👇 עיצוב הקרדיט המתוקן 👇 --- */
 footer {
     width: 100%;
     text-align: center;
-    padding: 20px 0 0 0;
-    margin-top: auto; /* זה החלק שדוחף את הקרדיט לתחתית */
+    padding-top: 20px; /* נותן קצת מרווח מעל הקרדיט */
+    flex-shrink: 0; /* מונע מהקרדיט להתכווץ */
 }
 
 footer p {
