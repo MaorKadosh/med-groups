@@ -25,8 +25,9 @@ header {
     margin-bottom: 25px;
 }
 
+/* --- עיצוב שהוספתי עבור הלוגו --- */
 .logo {
-    width: 80px;
+    width: 80px; /* ניתן לשנות את הגודל לפי הצורך */
     margin-bottom: 15px;
 }
 
