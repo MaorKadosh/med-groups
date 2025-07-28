@@ -255,13 +255,13 @@ const participants = [
     { name: 'אביעד זיוון בר', id: '5696832', group: 'קבוצה 13' }
 ];
 
-window.searchParticipant = function() {
+window.searchParticipant = function () {
     const searchTerm = document.getElementById('searchInput').value.trim();
     const resultDiv = document.getElementById('result');
 
     if (searchTerm === '') {
         resultDiv.innerHTML = '<p class="not-found">יש להזין שם או מספר אישי לחיפוש.</p>';
-        return; 
+        return;
     }
 
     const foundParticipants = participants.filter(p =>
@@ -280,7 +280,6 @@ window.searchParticipant = function() {
         resultDiv.innerHTML = '<p class="not-found">הפרטים שהוזנו לא נמצאו במערכת.</p>';
     }
 };
-
 document.getElementById('searchInput').addEventListener('keyup', function(event) {
     if (event.key === 'Enter') {
         event.preventDefault();
