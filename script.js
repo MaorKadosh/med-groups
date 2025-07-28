@@ -268,13 +268,13 @@ function searchParticipant() {
         return;
     }
 
-    // The search logic uses the English keys: .name and .id
+    // --- 👇 התיקון נמצא כאן 👇 ---
+    // החלפנו את === בפונקציה includes(), שבודקת אם השם המלא מכיל את מה שהוקלד.
     const foundParticipant = participants.find(p =>
-        p.name.toLowerCase() === searchTerm.toLowerCase() || p.id === searchTerm
+        p.name.toLowerCase().includes(searchTerm.toLowerCase()) || p.id.includes(searchTerm)
     );
 
     if (foundParticipant) {
-        // The display logic also uses the English keys
         resultDiv.innerHTML = `
             <p class="result-name">${foundParticipant.name}</p>
             <p>שובצת בקבוצת העבודה:</p>
