@@ -1,13 +1,15 @@
+html, body {
+    height: 100%; /* מבטיח שהעמוד יתפוס את כל גובה המסך */
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f7f6;
     color: #333;
-    display: flex;
-    flex-direction: column; /* אפשר לעמודה כדי למקם את הפוטר למטה */
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
+    display: flex; /* מפעיל את מודל העיצוב Flexbox */
+    flex-direction: column; /* מסדר את האלמנטים אחד מתחת לשני */
     padding: 20px;
     box-sizing: border-box;
 }
@@ -20,7 +22,7 @@ body {
     width: 100%;
     max-width: 500px;
     text-align: center;
-    margin-bottom: auto; /* דוחף את הקונטיינר למעלה */
+    margin: 0 auto; /* ממקם במרכז המסך האופקי */
 }
 
 header {
@@ -110,12 +112,12 @@ button:hover {
     font-weight: bold;
 }
 
-/* --- 👇 עיצוב שהוספתי עבור הקרדיט 👇 --- */
+/* --- 👇 עיצוב הקרדיט המתוקן 👇 --- */
 footer {
     width: 100%;
     text-align: center;
-    padding: 20px 0 0 0; /* מרווח מהחלק העליון */
-    margin-top: auto; /* דוחף את הפוטר לתחתית העמוד */
+    padding: 20px 0 0 0;
+    margin-top: auto; /* זה החלק שדוחף את הקרדיט לתחתית */
 }
 
 footer p {
