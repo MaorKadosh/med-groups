@@ -1,28 +1,37 @@
-
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>חיפוש משתתפים</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>כנס חיל הרפואה - 2025</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="logo.jpeg" alt="לוגו חיל הרפואה" class="logo">
-            <h1>מערכת חיפוש משתתפים</h1>
-            <p>הזן שם מלא (או חלק ממנו) כדי למצוא את קבוצת הדיון שלך</p>
-        </header>
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="חפש לפי שם...">
-            <button id="searchBtn">🔍 חיפוש</button>
-        </div>
-        <div id="result" class="result-box"></div>
+  <div class="container">
+    <header>
+      <img src="logo.jpeg" alt="סמל חיל הרפואה" class="logo" />
+      <h1>כנס חיל הרפואה השני לערכים - 2025</h1>
+      <p>מצא את קבוצת הדיון שלך</p>
+    </header>
+
+    <div class="search-box">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="הקלד שם פרטי או מלא..."
+      />
+      <button id="searchBtn">חיפוש</button>
     </div>
-    <footer>
-        <p>מדור תקשוב משר״פ, 8280 © 2025</p>
-    </footer>
-    <script src="groupDescriptions.js"></script>
-    <script src="script.js"></script>
+
+    <div id="result" class="result-box"></div>
+  </div>
+
+  <footer>
+    <p>מדור תקשוב משר״פ, 8280 © 2025</p>
+  </footer>
+
+  <script src="participants.js"></script>
+  <script src="groupDescriptions.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
