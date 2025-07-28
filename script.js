@@ -281,38 +281,6 @@ function searchParticipant() {
     }
 }
 
-    if (searchTerm === '') {
-        resultDiv.innerHTML = '<p class="not-found">יש להזין שם או מספר אישי לחיפוש.</p>';
-        return; 
-    }
-
-    const foundParticipants = participants.filter(p =>
-        p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        p.id.includes(searchTerm)
-    );
-    
-    if (foundParticipants.length > 0) {
-        resultDiv.innerHTML = foundParticipants.map(p => `
-            <p class="result-name">${p.name}</p>
-            <p>שובצת בקבוצת העבודה:</p>
-            <p class="result-group">${p.group}</p>
-            <hr>
-        `).join('');
-    } else {
-        resultDiv.innerHTML = '<p class="not-found">הפרטים שהוזנו לא נמצאו במערכת.</p>';
-    }
-
-    if (foundParticipant) {
-        resultDiv.innerHTML = `
-            <p class="result-name">${foundParticipant.name}</p>
-            <p>שובצת בקבוצת העבודה:</p>
-            <p class="result-group">${foundParticipant.group}</p>
-        `;
-    } else {
-        resultDiv.innerHTML = '<p class="not-found">הפרטים שהוזנו לא נמצאו במערכת.</p>';
-    }
-}
-
 document.getElementById('searchInput').addEventListener('keyup', function(event) {
     if (event.key === 'Enter') {
         event.preventDefault();
