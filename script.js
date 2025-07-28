@@ -214,7 +214,7 @@ const participants = [
     { name: 'דוד בנימין שטיין', id: '5677853', group: 'קבוצה 10' },
     { name: 'אורי יעקב אבנרי', id: '8222615', group: 'קבוצה 11' },
     { name: 'אלרועי שלמה אהרוני', id: '8312858', group: 'קבוצה 11' },
-    { name: 'אור אסולין', id: '8181525', group: 'קבוצה 11' },
+    { name: 'אור אסוליн', id: '8181525', group: 'קבוצה 11' },
     { name: 'נעה בינט', id: '8400295', group: 'קבוצה 11' },
     { name: 'עמרי גוטליב', id: '7344104', group: 'קבוצה 11' },
     { name: 'קארין דגן', id: '5994949', group: 'קבוצה 11' },
@@ -255,9 +255,25 @@ const participants = [
     { name: 'אביעד זיוון בר', id: '5696832', group: 'קבוצה 13' }
 ];
 
+// This object holds the details for each group, based on the uploaded file.
+const groupDetails = {
+    'קבוצה 1': { moderator: 'ד"ר אתי גויטע', location: 'כיתה 1 - קומה 1' },
+    'קבוצה 2': { moderator: 'ד"ר אבישג חיים', location: 'כיתה 2 - קומה 1' },
+    'קבוצה 3': { moderator: 'ד"ר אמיר כנעני', location: 'כיתה 3 - קומה 1' },
+    'קבוצה 4': { moderator: 'ד"ר כרם בר שלום', location: 'כיתה 5 - קומה 1' },
+    'קבוצה 5': { moderator: 'ד"ר עומר חסון', location: 'כיתה 6 - קומה 2' },
+    'קבוצה 6': { moderator: 'ד"ר יניב אליאב', location: 'כיתה 7 - קומה 2' },
+    'קבוצה 7': { moderator: 'ד"ר עוזי בכור', location: 'כיתה 8 - קומה 2' },
+    'קבוצה 8': { moderator: 'ד"ר אלון גל', location: 'כיתה 9 - קומה 2' },
+    'קבוצה 9': { moderator: 'ד"ר יניב פיזיצקי', location: 'כיתה 10 - קומה 2' },
+    'קבוצה 10': { moderator: 'ד"ר נירון חטיב', location: 'כיתה 11 - קומה 2' },
+    'קבוצה 11': { moderator: 'ד"ר נוי פיטרמן', location: 'כיתה 12 - קומה 2' },
+    'קבוצה 12': { moderator: 'ד"ר הדר זבולון', location: 'חדר ישיבות - קומה 2' },
+    'קבוצה 13': { moderator: 'ד"ר אביעד זיוון בר', location: 'חדר ישיבות - קומה 1' }
+};
+
 /**
  * This function searches for a participant in the list.
- * It is triggered by the "Search" button.
  */
 function searchParticipant() {
     const searchTerm = document.getElementById('searchInput').value.trim();
@@ -268,17 +284,22 @@ function searchParticipant() {
         return;
     }
 
-    // --- 👇 התיקון נמצא כאן 👇 ---
-    // החלפנו את === בפונקציה includes(), שבודקת אם השם המלא מכיל את מה שהוקלד.
     const foundParticipant = participants.find(p =>
         p.name.toLowerCase().includes(searchTerm.toLowerCase()) || p.id.includes(searchTerm)
     );
 
     if (foundParticipant) {
+        // Find the group details from the `groupDetails` object
+        const details = groupDetails[foundParticipant.group];
+
+        // Build the HTML to display all the information
         resultDiv.innerHTML = `
             <p class="result-name">${foundParticipant.name}</p>
-            <p>שובצת בקבוצת העבודה:</p>
             <p class="result-group">${foundParticipant.group}</p>
+            <div class="result-details">
+                <p><strong>מנחה:</strong> ${details.moderator}</p>
+                <p><strong>מיקום:</strong> ${details.location}</p>
+            </div>
         `;
     } else {
         resultDiv.innerHTML = '<p class="not-found">הפרטים שהוזנו לא נמצאו במערכת.</p>';
@@ -287,7 +308,6 @@ function searchParticipant() {
 
 /**
  * Adds an event listener to the search input field.
- * This allows triggering the search by pressing the "Enter" key.
  */
 document.getElementById('searchInput').addEventListener('keyup', function(event) {
     if (event.key === 'Enter') {
