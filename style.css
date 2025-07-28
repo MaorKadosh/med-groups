@@ -3,52 +3,34 @@
     --primary-color: #c62828;
     --accent-color: #ad1457;
     --background: #fffafa;
-    --success-bg: #fdecea;
-    --error-color: #b71c1c;
-}
-
-* {
-    box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     background: var(--background);
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+    margin: 0;
     padding: 20px;
+    direction: rtl;
 }
 
 .container {
-    background: #fff;
-    padding: 40px 30px;
-    border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 550px;
-    text-align: center;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
 .logo {
-    width: 150px;
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 15px;
+    width: 120px;
+    display: block;
+    margin: 0 auto 10px;
 }
 
 h1 {
-    color: var(--accent-color);
-    font-size: 2em;
+    color: var(--primary-color);
+    text-align: center;
 }
 
 .search-box {
@@ -58,48 +40,32 @@ h1 {
 }
 
 #searchInput {
-    flex-grow: 1;
-    padding: 12px;
-    border: 2px solid #ccc;
+    flex: 1;
+    padding: 10px;
     border-radius: 10px;
-    font-size: 1em;
-    direction: rtl;
-}
-
-#searchInput:focus {
-    border-color: var(--primary-color);
-    outline: none;
+    border: 1px solid #ccc;
+    font-size: 16px;
 }
 
 button {
-    padding: 12px 20px;
+    padding: 10px 20px;
     background: var(--primary-color);
     color: white;
     border: none;
     border-radius: 10px;
-    font-size: 1em;
     cursor: pointer;
-    transition: background 0.3s;
-}
-
-button:hover {
-    background: var(--accent-color);
 }
 
 .result-box {
-    background: var(--success-bg);
+    background: #fef2f2;
     border-radius: 10px;
     padding: 20px;
-    min-height: 80px;
-    text-align: right;
-    direction: rtl;
     white-space: pre-wrap;
+    text-align: right;
 }
 
 footer {
-    margin-top: auto;
+    margin-top: 20px;
     text-align: center;
-    padding-top: 20px;
-    font-size: 0.9em;
-    color: #888;
+    color: #777;
 }
