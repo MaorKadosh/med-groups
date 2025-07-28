@@ -33,9 +33,9 @@ header {
     margin-bottom: 25px;
 }
 
-/* --- 👇 כאן נמצא התיקון לגודל הלוגו 👇 --- */
+/* --- 👇 הגדלתי את הלוגו באופן משמעותי כאן 👇 --- */
 .logo {
-    width: 120px; /* הגדלתי מ-80px, אפשר לשחק עם המספר הזה */
+    width: 150px; /* גודל חדש ובולט */
     margin-bottom: 15px;
 }
 
