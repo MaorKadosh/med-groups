@@ -280,6 +280,7 @@ window.searchParticipant = function () {
         resultDiv.innerHTML = '<p class="not-found">הפרטים שהוזנו לא נמצאו במערכת.</p>';
     }
 };
+
 document.getElementById('searchInput').addEventListener('keyup', function(event) {
     if (event.key === 'Enter') {
         event.preventDefault();
