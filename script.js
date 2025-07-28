@@ -1,17 +1,3 @@
-// =======================================================================
-//          קובץ script.js - לוגיקת האפליקציה
-//      כנס חיל הרפואה השני לערכים - 2025
-// =======================================================================
-
-/**
- * רשימת המשתתפים והקבוצות שלהם.
- * ⚠️ **חשוב מאוד:** זוהי הרשימה המרכזית של האפליקציה. 
- * יש למלא אותה עם הנתונים האמיתיים של מוזמני הכנס.
- * כל משתתף הוא אובייקט עם שלושה שדות:
- * 1. name: שם מלא (כפי שיופיע בתוצאה)
- * 2. id: מספר אישי (חשוב שיהיה במרכאות, כמחרוזת)
- * 3. group: שם הקבוצה אליה שובץ
- */
 const participants = [
     { name: 'יצחק אלפנט', id: '7133892', group: 'קבוצה 1' },
     { name: 'יהונתן בן יוסף', id: '8119533', group: 'קבוצה 1' },
@@ -269,52 +255,33 @@ const participants = [
     { name: 'אביעד זיוון בר', id: '5696832', group: 'קבוצה 13' }
 ];
 
-/**
- * פונקציה זו מבצעת את החיפוש ברשימת המשתתפים.
- * היא מופעלת בלחיצה על כפתור "חיפוש".
- */
 function searchParticipant() {
-    // 1. קבלת הקלט מהמשתמש והסרת רווחים מיותרים
     const searchTerm = document.getElementById('searchInput').value.trim();
     const resultDiv = document.getElementById('result');
 
-    // 2. בדיקה אם שדה החיפוש ריק
     if (searchTerm === '') {
         resultDiv.innerHTML = '<p class="not-found">יש להזין שם או מספר אישי לחיפוש.</p>';
-        return; // יציאה מהפונקציה
+        return; 
     }
 
-    // 3. חיפוש המשתתף במערך `participants`
-    // החיפוש מתבצע על ידי השוואת השם (לא תלוי אותיות קטנות/גדולות) או המספר האישי
     const foundParticipant = participants.find(p =>
         p.name.toLowerCase() === searchTerm.toLowerCase() || p.id === searchTerm
     );
 
-    // 4. הצגת התוצאה למשתמש
     if (foundParticipant) {
-        // אם המשתתף נמצא, הצג את שמו והקבוצה שלו
         resultDiv.innerHTML = `
             <p class="result-name">${foundParticipant.name}</p>
             <p>שובצת בקבוצת העבודה:</p>
             <p class="result-group">${foundParticipant.group}</p>
         `;
     } else {
-        // אם המשתתף לא נמצא, הצג הודעת שגיאה
         resultDiv.innerHTML = '<p class="not-found">הפרטים שהוזנו לא נמצאו במערכת.</p>';
     }
 }
 
-/**
- * הוספת "מאזין אירועים" (Event Listener) לשדה החיפוש.
- * מאזין זה מאפשר להפעיל את פונקציית החיפוש גם על ידי לחיצה על מקש "Enter" במקלדת,
- * ולא רק בלחיצה על הכפתור.
- */
 document.getElementById('searchInput').addEventListener('keyup', function(event) {
-    // בדוק אם המקש שנלחץ הוא "Enter"
     if (event.key === 'Enter') {
-        // מנע את הפעולה הדיפולטיבית של המקש (כמו שליחת טופס)
         event.preventDefault();
-        // קרא לפונקציית החיפוש
         searchParticipant();
     }
 });
