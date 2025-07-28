@@ -1,18 +1,22 @@
-html, body {
+/* General page setup */
+html {
     height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f7f6;
 }
 
 body {
+    min-height: 100%;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
-    padding: 20px;
+    align-items: center;
 }
 
+/* Main application container */
 .container {
     background: #ffffff;
     padding: 30px;
@@ -21,15 +25,10 @@ body {
     width: 100%;
     max-width: 500px;
     text-align: center;
-    margin: 0 auto;
-    flex-shrink: 0; /* מונע מהמיכל להתכווץ */
-    /* --- 👇 השינוי העיקרי נמצא כאן 👇 --- */
-    flex-grow: 1; /* נותן למיכל לגדול ולתפוס את כל המקום הפנוי */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-shrink: 0; /* Prevents the container from shrinking */
 }
 
+/* Header section */
 header {
     margin-bottom: 25px;
 }
@@ -50,6 +49,7 @@ p {
     font-size: 1.1em;
 }
 
+/* Search elements */
 .search-box {
     display: flex;
     gap: 10px;
@@ -85,6 +85,7 @@ button:hover {
     background-color: #004d40;
 }
 
+/* Results box */
 .result-box {
     background-color: #e0f2f1;
     border: 1px dashed #00796b;
@@ -117,11 +118,12 @@ button:hover {
     font-weight: bold;
 }
 
+/* Footer section */
 footer {
     width: 100%;
     text-align: center;
-    padding-top: 20px; /* נותן קצת מרווח מעל הקרדיט */
-    flex-shrink: 0; /* מונע מהקרדיט להתכווץ */
+    padding-top: 20px;
+    margin-top: auto; /* This is the key part that pushes the footer down */
 }
 
 footer p {
