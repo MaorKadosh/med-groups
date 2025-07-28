@@ -255,6 +255,10 @@ const participants = [
     { name: 'אביעד זיוון בר', id: '5696832', group: 'קבוצה 13' }
 ];
 
+/**
+ * This function searches for a participant in the list.
+ * It is triggered by the "Search" button.
+ */
 function searchParticipant() {
     const searchTerm = document.getElementById('searchInput').value.trim();
     const resultDiv = document.getElementById('result');
@@ -264,24 +268,27 @@ function searchParticipant() {
         return;
     }
 
-    // --- 👇 התיקון המרכזי נמצא כאן 👇 ---
+    // --- The search logic now uses the English keys: .name and .id ---
     const foundParticipant = participants.find(p =>
-        // משווים מול "שם מלא" ו"מספר אישי" (וממירים את המספר למחרוזת לצורך השוואה)
-        p["שם מלא"].toLowerCase() === searchTerm.toLowerCase() || p["מספר אישי"].toString() === searchTerm
+        p.name.toLowerCase() === searchTerm.toLowerCase() || p.id === searchTerm
     );
 
     if (foundParticipant) {
-        // --- 👇 וגם כאן, בהצגת התוצאה 👇 ---
+        // --- The display logic also uses the English keys ---
         resultDiv.innerHTML = `
-            <p class="result-name">${foundParticipant["שם מלא"]}</p>
+            <p class="result-name">${foundParticipant.name}</p>
             <p>שובצת בקבוצת העבודה:</p>
-            <p class="result-group">${foundParticipant["קבוצה"]}</p>
+            <p class="result-group">${foundParticipant.group}</p>
         `;
     } else {
         resultDiv.innerHTML = '<p class="not-found">הפרטים שהוזנו לא נמצאו במערכת.</p>';
     }
 }
 
+/**
+ * Adds an event listener to the search input field.
+ * This allows triggering the search by pressing the "Enter" key.
+ */
 document.getElementById('searchInput').addEventListener('keyup', function(event) {
     if (event.key === 'Enter') {
         event.preventDefault();
